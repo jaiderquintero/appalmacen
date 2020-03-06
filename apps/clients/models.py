@@ -15,7 +15,7 @@ class Client(models.Model):
     #email = models.CharField(max_length=50, verbose_name="Correo Electronico")
 
     def __str__(self):
-        return self.name
+        return self.name + " " + self.lastname
 
     class Meta:
         verbose_name = "cliente"
