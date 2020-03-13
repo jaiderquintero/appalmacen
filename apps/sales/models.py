@@ -3,7 +3,7 @@ from django.utils.timezone import now
 from django.contrib.auth.models import User
 
 # Create your models here.
-from apps.productos.models import Product
+from apps.products.models import Product
 
 class Sale(models.Model):
     date = models.DateField(default=now, verbose_name="Fecha")
