@@ -23,4 +23,3 @@ class SaleAdmin(admin.ModelAdmin):
     sale_products.short_description = "Productos"
 
 admin.site.register(Sale, SaleAdmin)
-admin.site.register(Sale, ProductAdmin)
