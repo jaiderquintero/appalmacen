@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.timezone import now
 from django.contrib.auth.models import User
+from apps.clients.models import Client
 
 # Create your models here.
 from apps.products.models import Product
@@ -14,6 +15,10 @@ class Sale(models.Model):
     product = models.ManyToManyField(Product, through='SaleProduct', verbose_name="Producto")
     created = models.DateTimeField(auto_now=True, verbose_name="Fecha de Creacion")
     updated = models.DateTimeField(auto_now=True, verbose_name="Fecha de Edicion")
+    clients = models.ForeignKey(Client,
+                                    null=True,
+                                    blank=True,
+                                    on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = "venta"

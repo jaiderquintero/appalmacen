@@ -13,8 +13,8 @@ class ProductAdmin(admin.ModelAdmin):
 class SaleAdmin(admin.ModelAdmin):
     inlines = (MembershipInline,)
     # readonly_fields = ('created', 'updated')  # No permite edicion de create y update
-    list_display = ('date','user', 'discount', 'subtotal', 'total')
-    ordering = ('date', 'user', 'total')
+    list_display = ('date','user', 'discount', 'clients', 'subtotal', 'total')
+    ordering = ('date', 'user', 'clients', 'total')
     date_hierarchy = 'date'
 
     def sale_products(self, obj):
