@@ -11,7 +11,7 @@ class ProductAdmin(admin.ModelAdmin):
     #form de busqueda
     search_fields = ('name','mark', 'product_types__name') #Campo relacionado
     #date_hierarchy = 'create'    #campo de fechas
-    list_filter = ('product_types__name',) # Campos relacionados
+    list_filter = ('product_types__name', 'mark',) # Campos relacionados
 
     """
     Para campos many to many
