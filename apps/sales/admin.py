@@ -15,6 +15,8 @@ class SaleAdmin(admin.ModelAdmin):
     # readonly_fields = ('created', 'updated')  # No permite edicion de create y update
     list_display = ('date','user', 'discount', 'clients', 'subtotal', 'total')
     ordering = ('date', 'user', 'clients', 'total')
+    search_fields = ('date','user__username', 'clients__name') #Campo relacionado
+    list_filter = ('date', 'user__username','clients__name',) # Campos relacionados
     date_hierarchy = 'date'
 
     def sale_products(self, obj):
