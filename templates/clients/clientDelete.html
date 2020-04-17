@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block content %}
+    <h2>Clientes</h2>
+    <form method="post">
+        {% csrf_token %}
+        <h3>Desea eliminar el Registro de {{ clients.name }} - {{ clients.lastname }} ?</h3>  
+        <button class="btn btn-danger" type="submit">Si, Eliminar</button>
+        <a class="btn btn-primary" href="{% url 'clients:listClients' %}">Cancelar</a>
+
+    </form>
+{% endblock %}

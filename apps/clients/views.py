@@ -34,3 +34,11 @@ def clientEdit(request, id_client):
         return redirect('clients:listClients')
 
     return render(request, 'clients/formClient.html', {'form':form})
+
+def clientDelete(request, id_client):
+    client = Client.objects.get(pk=id_client)
+    
+    if request.method == 'POST':
+        client.delete()
+        return redirect('clients:listClients')
+    return render(request, 'clients/clientDelete.html', {'clients': client})
