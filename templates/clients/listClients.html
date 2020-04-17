@@ -1,0 +1,56 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    
+{% endblock %}
+
+{% block content %}
+    <h2>Listado de Clientes</h2>
+    <h1 class="pull-right">
+      <a class="btn btn-primary pull-right" 
+        style="margin-top: -10px;margin-bottom: 5px" 
+        href="#">Adicionar
+    </a>
+   </h1>
+    <br/>
+
+    <table class="table table-striped">
+        
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Rut</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">phone</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+         {% if clients %}  
+         {% for client in clients %} 
+          <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.lastname }}</td>
+            <td>{{ client.rut }}</td>
+            <td>{{ client.address }}</td>
+            <td>{{ client.phone }}</td>
+            <td>
+                <a class="btn btn-primary" href="#">
+                    <i class="fa fa-edit"></i>
+                </a>
+
+                <a class="btn btn-danger" href="#">
+                    <i class="fa fa-eraser"></i>
+                </a>
+            </td>
+          </tr>
+          {% endfor %}
+          {% else %}
+          <h1>No hay registros</h1>
+          {% endif %}
+        </tbody>
+      </table>
+{% endblock %}
