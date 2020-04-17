@@ -22,3 +22,15 @@ def clientCreate(request):
     else:
         form = ClientForm()
     return render(request, 'clients/formClient.html', {'form':form})
+
+def clientEdit(request, id_client):
+    client = Client.objects.get(pk=id_client)
+    if request.method == 'GET':
+        form = ClientForm(instance=client)
+    else:
+        form = ClientForm(request.POST, instance=client)
+        if form.is_valid():
+            form.save()
+        return redirect('clients:listClients')
+
+    return render(request, 'clients/formClient.html', {'form':form})
